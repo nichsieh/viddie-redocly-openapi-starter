@@ -1,0 +1,54 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Example.com
+  termsOfService: https://example.com/terms/
+  contact:
+    email: contact@example.com
+    url: http://example.com/contact
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  x-logo:
+    url: https://redocly.github.io/openapi-template/logo.png
+  description: "This is an **example** API to demonstrate features of the OpenAPI specification.\r\n\r\n# Introduction\r\n\r\nThis API definition is intended to to be a good starting point for\r\ndescribing your API in \r\n\r\n[OpenAPI/Swagger\r\nformat](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md).\r\n\r\nIt also demonstrates features of the\r\n[create-openapi-repo](https://github.com/Redocly/create-openapi-repo) tool\r\nand \r\n\r\nthe [Redoc](https://github.com/Redocly/Redoc) documentation engine. Beyond\r\nthe standard OpenAPI syntax, we use a few \r\n\r\n[vendor\r\nextensions](https://github.com/Redocly/Redoc/blob/master/docs/redoc-vendor-extensions.md).\r\n\r\n\r\n# OpenAPI Specification\r\n\r\nThe goal of The OpenAPI Specification is to define a standard,\r\nlanguage-agnostic interface to REST APIs which\r\n\r\nallows both humans and computers to discover and understand the capabilities\r\nof the service without access to source\r\n\r\ncode, documentation, or through network traffic inspection. When properly\r\ndefined via OpenAPI, a consumer can \r\n\r\nunderstand and interact with the remote service with a minimal amount of\r\nimplementation logic. Similar to what\r\n\r\ninterfaces have done for lower-level programming, OpenAPI removes the\r\nguesswork in calling the service.\r\n"
+tags:
+  - name: Echo
+    description: Example echo operations.
+  - name: User
+    description: Operations about users.
+  - name: Tag
+    description: This is a tag description.
+servers:
+  - url: https://{tenant}/api/v1
+    variables:
+      tenant:
+        default: www
+        description: Your tenant id
+  - url: https://example.com/api/v1
+paths:
+  /users/{username}:
+    $ref: paths/users_{username}.yaml
+  /echo:
+    $ref: paths/echo.yaml
+  /pathItem:
+    $ref: paths/pathItem.yaml
+  /pathItemWithExamples:
+    $ref: paths/pathItemWithExamples.yaml
+components:
+  securitySchemes:
+    main_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: http://example.com/api/oauth/dialog
+          scopes:
+            read:users: read users info
+            write:users: modify or remove users
+    api_key:
+      type: apiKey
+      in: header
+      name: api_key
+    basic_auth:
+      type: http
+      scheme: basic

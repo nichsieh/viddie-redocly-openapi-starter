@@ -2,7 +2,7 @@
   "name": "acme-api",
   "version": "1.0.0",
   "dependencies": {
-    "@redocly/cli": "1.0.0-beta.98",
+    "@redocly/cli": "1.0.0-beta.105",
     "core-js": "^3.22.8",
     "mobx": "^6.6.0",
     "react": "^18.1.0",
